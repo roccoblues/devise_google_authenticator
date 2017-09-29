@@ -42,7 +42,7 @@ module Devise # :nodoc:
               valid_vals << ROTP::TOTP.new(self.get_qr).at(Time.now.in(30*cc))
             end
 
-            if valid_vals.include?(token.to_i)
+            if valid_vals.include?(token.to_s)
               return true
             else
               return false
